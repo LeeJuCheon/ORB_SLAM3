@@ -25,7 +25,7 @@ pwd = os.path.dirname(os.path.abspath(__file__))
 def main():
     """
     This script installs necessary C++ and Python packages to build and run this program.
-    The package configuration file is read from thirdparty/packages.yaml.
+    The package configuration file is read from Thirdparty/packages.yaml.
     """
 
     parser = argparse.ArgumentParser(
@@ -47,7 +47,7 @@ def main():
         install_in_system = True
 
     global cfg
-    config_file_path = "./thirdparty/packages.yaml"
+    config_file_path = "./Thirdparty/packages.yaml"
     if not os.path.isfile(config_file_path):
         parser.print_help()
         return
@@ -146,12 +146,12 @@ def install_build_packages(enable_debug):
     #     install_cereal(cfg.cereal, enable_debug)
     if cfg.spdlog != "":
         install_spdlog(cfg.spdlog, enable_debug)
-    # if cfg.pangolin != "":
-    #     install_pangolin(cfg.pangolin, enable_debug)
-    # if cfg.eigen != "":
-    #     install_eigen(cfg.eigen, enable_debug)
-    # if cfg.opencv != "":
-    #     install_opencv(cfg.opencv, enable_debug)
+    if cfg.pangolin != "":
+        install_pangolin(cfg.pangolin, enable_debug)
+    if cfg.eigen != "":
+        install_eigen(cfg.eigen, enable_debug)
+    if cfg.opencv != "":
+        install_opencv(cfg.opencv, enable_debug)
     # if cfg.ceres != "":
     #     install_ceres(cfg.ceres, enable_debug)
     if cfg.gtest != "":
@@ -179,10 +179,10 @@ def install_spdlog(cfg, enable_debug):
         release_build_flags += " "
 
     try:
-        os.system(pw.sudo() + "rm -rf ./thirdparty/spdlog")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/spdlog")
 
-        os.makedirs("./thirdparty/spdlog")
-        os.chdir("./thirdparty/spdlog")
+        os.makedirs("./Thirdparty/spdlog")
+        os.chdir("./Thirdparty/spdlog")
 
         try:
             urllib.request.urlretrieve(
@@ -241,10 +241,10 @@ def install_pangolin(cfg, enable_debug):
         os.system(pw.sudo() + "apt-get -y install libgl1-mesa-dev")
         os.system(pw.sudo() + "apt-get -y install libegl1-mesa-dev")
 
-        os.system(pw.sudo() + "rm -rf ./thirdparty/pangolin")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/pangolin")
 
-        os.makedirs("./thirdparty/pangolin")
-        os.chdir("./thirdparty/pangolin")
+        os.makedirs("./Thirdparty/pangolin")
+        os.chdir("./Thirdparty/pangolin")
 
         try:
             urllib.request.urlretrieve(
@@ -323,10 +323,10 @@ def install_eigen(cfg, enable_debug):
         os.system(pw.sudo() + "apt-get -y install libblas-dev")
         os.system(pw.sudo() + "apt-get -y install libatlas-base-dev")
         os.system(pw.sudo() + "apt-get -y install liblapack-dev")
-        os.system(pw.sudo() + "rm -rf ./thirdparty/eigen")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/eigen")
 
-        os.makedirs("./thirdparty/eigen")
-        os.chdir("./thirdparty/eigen")
+        os.makedirs("./Thirdparty/eigen")
+        os.chdir("./Thirdparty/eigen")
 
         try:
             urllib.request.urlretrieve(
@@ -417,10 +417,10 @@ def install_opencv(cfg, enable_debug):
         os.system(pw.sudo() + "apt-get -y install libpng-dev")
         os.system(pw.sudo() + "apt-get -y install libtiff-dev")
         os.system(pw.sudo() + "apt-get -y install libdc1394-22-dev")
-        os.system(pw.sudo() + "rm -rf ./thirdparty/opencv")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/opencv")
 
-        os.makedirs("./thirdparty/opencv")
-        os.chdir("./thirdparty/opencv")
+        os.makedirs("./Thirdparty/opencv")
+        os.chdir("./Thirdparty/opencv")
 
         try:
             urllib.request.urlretrieve(
@@ -500,10 +500,10 @@ def install_ceres(cfg, enable_debug):
         os.system(pw.sudo() + "apt-get -y install libsuitesparse-dev")
         os.system(pw.sudo() + "apt-get -y install libpthread-stubs0-dev")
 
-        os.system(pw.sudo() + "rm -rf ./thirdparty/ceres")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/ceres")
 
-        os.makedirs("./thirdparty/ceres")
-        os.chdir("./thirdparty/ceres")
+        os.makedirs("./Thirdparty/ceres")
+        os.chdir("./Thirdparty/ceres")
 
         try:
             urllib.request.urlretrieve(
@@ -586,10 +586,10 @@ def install_gtest(cfg, enable_debug):
         release_build_flags += " "
 
     try:
-        os.system(pw.sudo() + "rm -rf ./thirdparty/gtest")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/gtest")
 
-        os.makedirs("./thirdparty/gtest")
-        os.chdir("./thirdparty/gtest")
+        os.makedirs("./Thirdparty/gtest")
+        os.chdir("./Thirdparty/gtest")
 
         try:
             urllib.request.urlretrieve(
@@ -647,10 +647,10 @@ def install_easy_profiler(cfg, enable_debug):
 
     try:
         os.system(pw.sudo() + "apt-get -y install qt5-default")
-        os.system(pw.sudo() + "rm -rf ./thirdparty/easy_profiler")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/easy_profiler")
 
-        os.makedirs("./thirdparty/easy_profiler")
-        os.chdir("./thirdparty/easy_profiler")
+        os.makedirs("./Thirdparty/easy_profiler")
+        os.chdir("./Thirdparty/easy_profiler")
 
         try:
             urllib.request.urlretrieve(
@@ -712,10 +712,10 @@ def install_imgui(cfg, enable_debug):
         release_build_flags += " "
 
     try:
-        os.system(pw.sudo() + "rm -rf ./thirdparty/imgui")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/imgui")
 
-        os.makedirs("./thirdparty/imgui")
-        os.chdir("./thirdparty/imgui")
+        os.makedirs("./Thirdparty/imgui")
+        os.chdir("./Thirdparty/imgui")
 
         try:
             urllib.request.urlretrieve(
@@ -750,10 +750,10 @@ def install_cereal(cfg, enable_debug):
         release_build_flags += " "
 
     try:
-        os.system(pw.sudo() + "rm -rf ./thirdparty/cereal")
+        os.system(pw.sudo() + "rm -rf ./Thirdparty/cereal")
 
-        os.makedirs("./thirdparty/cereal")
-        os.chdir("./thirdparty/cereal")
+        os.makedirs("./Thirdparty/cereal")
+        os.chdir("./Thirdparty/cereal")
 
         try:
             urllib.request.urlretrieve(
