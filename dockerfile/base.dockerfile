@@ -26,6 +26,7 @@ apt-get install -y cmake && \
 apt-get install -y rsync && \
 apt-get install -y tar && \
 apt-get install -y mesa-utils && \
+apt-get install -y libpython2.7-dev && \
 # Related to X11 remote display
 apt-get install -y libgl1-mesa-glx && \
 apt-get install -y libglu1-mesa-dev && \
@@ -43,6 +44,6 @@ RUN mkdir slam && cd slam && \
     git clone https://github.com/LeeJuCheon/ORB_SLAM3 && \
     cd ORB_SLAM3 && python3 ./buildDeps.py --d --system
 
-RUN chmod +x build.sh && \
-    /build.sh
+# RUN cd slam && cd ORB_SLAM3 && chmod +x build.sh && \
+#     ./build.sh
 
