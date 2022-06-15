@@ -7,7 +7,7 @@ RUN apt-get update -y && apt-get upgrade -y
 
 RUN useradd -m user && yes password | passwd user
 
-RUN cd ORB_SLAM3 && \
+RUN cd slam && cd ORB_SLAM3 && \
 git remote update && \
 git fetch --all && \
 git checkout ${BRANCH} && \
