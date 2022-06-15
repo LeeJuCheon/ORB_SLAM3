@@ -23,7 +23,7 @@ build_packages:
       release :
         - "-DCMAKE_CXX_FLAGS=\"-Ofast\""
   OpenCV: 
-    version_num: 3.4.5
+    version_num: 4.4.0
     cmake_flags:
       debug: ""
       release:
