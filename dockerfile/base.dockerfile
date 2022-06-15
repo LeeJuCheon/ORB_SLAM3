@@ -47,4 +47,11 @@ RUN mkdir slam && cd slam && \
 RUN cd slam && cd ORB_SLAM3 && chmod +x build.sh && \
     ./build.sh
 
+RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \ 
+apt-get install curl && \
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add - && \
+apt-get update -y && apt-get upgrade -y && \
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
+apt-get install -y ros-melodic-desktop-full && \
+apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 
