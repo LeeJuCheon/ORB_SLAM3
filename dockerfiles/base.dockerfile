@@ -39,5 +39,5 @@ RUN apt-get autoclean
 
 RUN mkdir slam && cd slam && \
     git clone https://github.com/LeeJuCheon/ORB_SLAM3 && \
-    cd ORB_SLAM3 && \
-    python3 ./buildDeps.py --d
+    cd ORB_SLAM3 && python3 ./buildDeps.py --d --system
+   
