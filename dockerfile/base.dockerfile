@@ -45,8 +45,8 @@ RUN mkdir slam && cd slam && \
     git clone https://github.com/LeeJuCheon/ORB_SLAM3 && \
     cd ORB_SLAM3 && python3 ./buildDeps.py --d --system
 
-RUN cd slam && cd ORB_SLAM3 && chmod +x build.sh && \
-    ./build.sh
+RUN cd slam && cd ORB_SLAM3 && chmod +x build_thirdparty.sh && chmod +x build.sh\
+    ./build_thirdparty.sh
 
 RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \ 
 apt-get install curl && \
