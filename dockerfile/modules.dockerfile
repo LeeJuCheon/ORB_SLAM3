@@ -28,7 +28,6 @@ git fetch --all && \
 git checkout ${BRANCH} && \
 git pull && \
 git branch && \
-mkdir build && \
 cd build && \
 cmake .. -DCMAKE_BUILD_TYPE=Debug && \
 make -j2

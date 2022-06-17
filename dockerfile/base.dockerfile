@@ -33,6 +33,7 @@ apt-get install -y libglu1-mesa-dev && \
 apt-get install -y mesa-common-dev && \
 apt-get install -y x11-utils && \
 apt-get install -y x11-apps && \
+apt-get install x11-xserver-utils && \
 apt-get clean
 
 RUN pip3 install pyyaml
@@ -55,3 +56,4 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 apt-get install -y ros-melodic-desktop-full && \
 apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 
+ENV DISPLAY=host.docker.internal:0.0
