@@ -189,6 +189,10 @@ endif()
 #Monocular examples
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 
+add_executable(mono_cam
+        Examples/Monocular/mono_cam.cc)
+target_link_libraries(mono_cam ${PROJECT_NAME})
+
 add_executable(mono_tum
         Examples/Monocular/mono_tum.cc)
 target_link_libraries(mono_tum ${PROJECT_NAME})
