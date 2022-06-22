@@ -1,5 +1,14 @@
 # ORB-SLAM3
 
+# Run Dockerfile
+```bash
+  docker build --no-cache --progress=tty --force-rm -f base.dockerfile -t orb:slam3 . # 예시, 뒤의 image 이름은 수정 필요
+```
+
+기존의 build.sh파일을 build_thirdparty.sh, build.sh 파일 두개로 분리하였습니다. 
+base.dockerfile 실행시 build_thidrparty.sh만 실행되어 빌드되고(DBow2, OpenSSL, g2o, Sophus, vocabulary 압축 해제),
+이후 build.sh을 실행하면 전체 build가 진행됩니다.
+
 ### V1.0, December 22th, 2021
 **Authors:** Carlos Campos, Richard Elvira, Juan J. Gómez Rodríguez, [José M. M. Montiel](http://webdiis.unizar.es/~josemari/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/).
 
