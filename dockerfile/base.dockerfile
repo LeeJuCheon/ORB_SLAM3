@@ -33,6 +33,7 @@ apt-get install -y libglu1-mesa-dev && \
 apt-get install -y mesa-common-dev && \
 apt-get install -y x11-utils && \
 apt-get install -y x11-apps && \
+apt-get install x11-xserver-utils && \
 apt-get clean
 
 RUN pip3 install pyyaml
@@ -44,8 +45,8 @@ RUN mkdir slam && cd slam && \
     git clone https://github.com/LeeJuCheon/ORB_SLAM3 && \
     cd ORB_SLAM3 && python3 ./buildDeps.py --d --system
 
-RUN cd slam && cd ORB_SLAM3 && chmod +x build.sh && \
-    ./build.sh
+RUN cd slam && cd ORB_SLAM3 && chmod +x build_thirdparty.sh && chmod +x build.sh\
+    ./build_thirdparty.sh
 
 RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \ 
 apt-get install curl && \
@@ -55,3 +56,4 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 apt-get install -y ros-melodic-desktop-full && \
 apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 
+ENV DISPLAY=host.docker.internal:0.0
