@@ -61,11 +61,13 @@
     ex2) ./Monocular/mono_euroc ../Vocabulary/ORBvoc.txt ./Monocular/EuRoC.yaml ../DataSets/EuRoC/MH01/ ./Monocular/EuRoC_TimeStamps/MH01.txt
 
 ### Extra. Map 저장, 저장된 Map 파일 Pangolin으로 실행하는 방법
-영상이 끝나면 ./kitti.ply 저장 (파일명 변경가능)
-해당 파일을 Pangolin으로 실행하는 명령어
+* 영상이 끝나면 ./kitti.ply 저장 (파일명 변경가능)
+* 해당 파일을 Pangolin으로 실행하는 명령어
+
+```
 ./plotPointCloud file_name
 # example : ./plotPointCloud kitti.ply
-
+```
 
 
 ### 이 Github는 https://github.com/UZ-SLAMLab/ORB_SLAM3의 내용을 기반으로 작성하였습니다.
